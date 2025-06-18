@@ -22,6 +22,41 @@ let songs = [
     {songName: "Illuminati (Music song) ", filePath: "10.mp3", coverPath: "10.jpg"},
 ]
 
+songItems.forEach((element, i) => {
+    element.addEventListener('click', () => {
+        makeAllPlays();
+        songIndex = i;
+        audioElement.src = songs[songIndex].filePath;
+        masterSongName.innerText = songs[songIndex].songName;
+        audioElement.currentTime = 0;
+        audioElement.play();
+        gif.style.opacity = 1;
+        masterPlay.classList.remove('fa-play-circle');
+        masterPlay.classList.add('fa-pause-circle');
+
+        // update icon if play icon exists inside the songItem
+        let playBtn = element.querySelector('.songItemPlay');
+        if (playBtn) {
+            playBtn.classList.remove('fa-play-circle');
+            playBtn.classList.add('fa-pause-circle');
+        }
+    });
+});
+let playButtons = document.querySelectorAll(".songItemPlay");
+
+playButtons.forEach((button) => {
+    button.addEventListener("click", (e) => {
+        // Remove existing selection
+        document.querySelectorAll(".songItem").forEach(item => {
+            item.classList.remove("selected");
+        });
+
+        // Add glow to the parent songItem
+        let songItem = e.target.closest(".songItem");
+        songItem.classList.add("selected");
+    });
+});
+
 songItems.forEach((element, i)=>{ 
     element.getElementsByTagName("img")[0].src = songs[i].coverPath; 
     element.getElementsByClassName("songName")[0].innerText = songs[i].songName; 
@@ -36,7 +71,7 @@ masterPlay.addEventListener('click', ()=>{
         masterPlay.classList.add('fa-pause-circle');
         gif.style.opacity = 1;
     }
-    else{
+    else {
         audioElement.pause();
         masterPlay.classList.remove('fa-pause-circle');
         masterPlay.classList.add('fa-play-circle');
@@ -88,7 +123,7 @@ Array.from(document.getElementsByClassName('songItemPlay')).forEach((element)=>{
         songIndex = parseInt(e.target.id);
         e.target.classList.remove('fa-play-circle');
         e.target.classList.add('fa-pause-circle');
-        audioElement.src = `songs2/${songIndex+1}.mp3`;
+        audioElement.src = `${songIndex+1}.mp3`;
         masterSongName.innerText = songs[songIndex].songName;
         audioElement.currentTime = 0;
         audioElement.play();
