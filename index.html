@@ -75,15 +75,19 @@
         <div class="songBanner"></div>
     </div>
 
-    <div class="bottom">
+   <div class="bottom">
         <input type="range" name="range" id="myProgressBar" min="0" value="0" max="100">
         <div class="icons">
             <!-- fontawesome icons -->
             
-             <img src="left.png" alt="previous" height="42" width="42" id="previous">
-             <img src="pause.png" alt="pause" height="42" width="42" id="masterPlay"> 
-             <img src="right.png" alt="next" height="42" width="42" id="next">
+           <button id="masterPlay"><i class="fas fa-play-circle"></i></button>
+
+<!-- Optional: Next & Previous Buttons -->
+<button id="previous"><i class="fas fa-backward"></i></button>
+<button id="next"><i class="fas fa-forward"></i></button>
         </div>
+       <img id="gif" src="playing.gif" style="opacity: 0; width: 50px;" alt="playing animation">
+
         <div class="songInfo">
             <img src="playing.gif" width="42px" alt="" id="gif"> <span id="masterSongName">Insaanile Ft Hanan Shaah</span>
         </div>
