@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
 body{
-   background-image: url('1.jpg'); /* your image file */
+  background-color: rgb(4, 5, 4); /* your image file */
     background-repeat: repeat;            /* repeats horizontally and vertically */
     background-size: auto;                /* keeps original image size */
     background-position: top left;
