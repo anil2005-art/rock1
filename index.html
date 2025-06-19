@@ -10,7 +10,7 @@
 <body>
     <nav>
         <ul>
-            <li class="brand"><img src="logo.png" alt="AJ Songs"> AJ Songs</li>
+            <li class="brand"><img src="logo.png" alt="AJ SONGS"> AJ SONGS</li>
             <li><a href="https://anil2005-art.github.io/ajmusic2026">Home</a></li>
             <li>About</li>
         </ul>
@@ -18,7 +18,7 @@
 
     <div class="container">
         <div class="songList">
-            <h1>Best Sounds</h1>
+            <h1>Best of NCS - No Copyright Sounds</h1>
             <div class="songItemContainer">
                 <div class="songItem">
                     <img alt="1">
@@ -72,26 +72,38 @@
                 </div>
             </div>
         </div>
-     <div class="songBanner"></div>
+      <div class="songBanner"></div>
+    </div>
+<div class="songBanner"></div>
     </div>
 
-    <div class="bottom">
-        <input type="range" name="range" id="myProgressBar" min="0" value="0" max="100">
-        <div class="icons">
-            <!-- fontawesome icons -->
-            
-           <button id="masterPlay"><i class="fas fa-play-circle"></i></button>
+   <div class="bottom">
+    <!-- Progress Bar -->
+    <input type="range" name="range" id="myProgressBar" min="0" value="0" max="100" />
 
-<!-- Optional: Next & Previous Buttons -->
-<button id="previous"><i class="fas fa-backward"></i></button>
-<button id="next"><i class="fas fa-forward"></i></button>
+    <!-- Playback Controls -->
+    <div class="icons">
+      <i id="previous" class="fas fa-step-backward"></i>
+      <i id="masterPlay" class="fas fa-play-circle"></i>
+      <i id="next" class="fas fa-step-forward"></i>
+    </div>
 
-    <div>
- <div class="songInfo">
-  <button id="masterPlay"><i class="fas fa-play-circle"></i></button>
-  <span id="masterSongName">Warriyo - Mortals [NCS Release]</span>
-  <img src="playing.gif" width="42px" alt="" id="gif">
-</div>
+    <!-- Song Info -->
+    <div class="songInfo">
+      <span id="masterSongName">Warriyo - Mortals [NCS Release]</span>
+      <span>
+        <span id="currentTime">0:00</span> /
+        <span id="totalDuration">0:00</span>
+      </span>
+      <img src="playing.gif" width="42" id="gif" alt="Playing animation" />
+    </div>
+  </div>
+
+  <!-- JavaScript -->
+  <script src="script.js"></script>
+
+
+
 
 <!-- Gif to show when playing -->
 <img id="gif" src="playing.gif" style="opacity: 0; width: 50px;" alt="playing animation">
@@ -104,3 +116,4 @@
     <script src="https://kit.fontawesome.com/26504e4a1f.js" crossorigin="anonymous"></script>
 </body>
 </html>
+  
