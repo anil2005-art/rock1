@@ -15,11 +15,11 @@ const songs = [
     { songName: "DEAF KEV - Invincible [NCS Release]", filePath: "3.mp3", coverPath: "3.jpg" },
     { songName: "Different Heaven & EH!DE - My Heart", filePath: "4.mp3", coverPath: "4.jpg" },
     { songName: "Janji - Heroes Tonight", filePath: "5.mp3", coverPath: "5.jpg" },
-    { songName: "Rabba - Salam-e-Ishq", filePath: "2.mp3", coverPath: "6.jpg" },
-    { songName: "Sakhiyaan - Salam-e-Ishq", filePath: "2.mp3", coverPath: "7.jpg" },
-    { songName: "Bhula Dena - Salam-e-Ishq", filePath: "2.mp3", coverPath: "8.jpg" },
-    { songName: "Tumhari Kasam - Salam-e-Ishq", filePath: "2.mp3", coverPath: "9.jpg" },
-    { songName: "Na Jaana - Salam-e-Ishq", filePath: "4.mp3", coverPath: "10.jpg" }
+    { songName: "Rabba - Salam-e-Ishq", filePath: "6.mp3", coverPath: "6.jpg" },
+    { songName: "Sakhiyaan - Salam-e-Ishq", filePath: "7.mp3", coverPath: "7.jpg" },
+    { songName: "Bhula Dena - Salam-e-Ishq", filePath: "8.mp3", coverPath: "8.jpg" },
+    { songName: "Tumhari Kasam - Salam-e-Ishq", filePath: "9.mp3", coverPath: "9.jpg" },
+    { songName: "Na Jaana - Salam-e-Ishq", filePath: "10.mp3", coverPath: "10.jpg" }
 ];
 
 // === Populate Song List ===
