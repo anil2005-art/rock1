@@ -163,3 +163,55 @@ document.getElementById('previous').addEventListener('click', ()=>{
     masterPlay.classList.remove('fa-play-circle');
     masterPlay.classList.add('fa-pause-circle');
 })
+// Update Media Session info for lock screen / notifications
+function updateMediaSession(song) {
+    if ('mediaSession' in navigator) {
+        navigator.mediaSession.metadata = new MediaMetadata({
+            title: song.songName,
+            artist: "Your Artist Name", // Optional: you can customize
+            album: "Your Album Name",  // Optional
+            artwork: [
+                { src: song.coverPath, sizes: '512x512', type: 'image/jpeg' }
+            ]
+        });
+
+        navigator.mediaSession.setActionHandler('play', () => {
+            audioElement.play();
+        });
+
+        navigator.mediaSession.setActionHandler('pause', () => {
+            audioElement.pause();
+        });
+
+        navigator.mediaSession.setActionHandler('previoustrack', () => {
+            document.getElementById('previous').click();
+        });
+
+        navigator.mediaSession.setActionHandler('nexttrack', () => {
+            document.getElementById('next').click();
+        });
+    }
+}
+updateMediaSession(songs[songIndex]);
+audioElement.src = songs[songIndex].filePath;
+masterSongName.innerText = songs[songIndex].songName;
+audioElement.currentTime = 0;
+audioElement.play();
+updateMediaSession(songs[songIndex]); // ✅ ADD THIS LINE
+document.getElementById('next').addEventListener('click', ()=>{
+    if(songIndex >= 9){
+        songIndex = 0;
+    } else {
+        songIndex += 1;
+    }
+
+    audioElement.src = `${songIndex + 1}.mp3`;
+    masterSongName.innerText = songs[songIndex].songName;
+    audioElement.currentTime = 0;
+    audioElement.play();
+    masterPlay.classList.remove('fa-play-circle');
+    masterPlay.classList.add('fa-pause-circle');
+
+    updateMediaSession(songs[songIndex]); // ✅ ADD THIS
+});
+
