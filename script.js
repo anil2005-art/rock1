@@ -10,16 +10,16 @@ const masterSongName = document.getElementById('masterSongName');
 const songItems = Array.from(document.getElementsByClassName('songItem'));
 
 const songs = [
-    { songName: "Warriyo - Mortals [NCS Release]", filePath: "1.mp3", coverPath: "1.jpg" },
-    { songName: "Cielo - Huma-Huma", filePath: "2.mp3", coverPath: "2.jpg" },
-    { songName: "DEAF KEV - Invincible [NCS Release]", filePath: "3.mp3", coverPath: "3.jpg" },
-    { songName: "Different Heaven & EH!DE - My Heart", filePath: "4.mp3", coverPath: "4.jpg" },
-    { songName: "Janji - Heroes Tonight", filePath: "5.mp3", coverPath: "5.jpg" },
-    { songName: "Rabba - Salam-e-Ishq", filePath: "6.mp3", coverPath: "6.jpg" },
-    { songName: "Sakhiyaan - Salam-e-Ishq", filePath: "7.mp3", coverPath: "7.jpg" },
-    { songName: "Bhula Dena - Salam-e-Ishq", filePath: "8.mp3", coverPath: "8.jpg" },
-    { songName: "Tumhari Kasam - Salam-e-Ishq", filePath: "9.mp3", coverPath: "9.jpg" },
-    { songName: "Na Jaana - Salam-e-Ishq", filePath: "10.mp3", coverPath: "10.jpg" }
+    { songName: "Insaanile Ft Hanan Shaah", filePath: "1.mp3", coverPath: "1.jpg" },
+    { songName: "Kasavinaal", filePath: "2.mp3", coverPath: "2.jpg" },
+    { songName: "Kasavinaal 2", filePath: "3.mp3", coverPath: "3.jpg" },
+    { songName: "MHR x JOKER - MUNTHIRICHAR", filePath: "4.mp3", coverPath: "4.jpg" },
+    { songName: "Narivetta - Minnalvala  Tovino Thomas", filePath: "5.mp3", coverPath: "5.jpg" },
+    { songName: "Jagga Jasoos_ Galti Se Mistake", filePath: "6.mp3", coverPath: "6.jpg" },
+    { songName: "CHAL", filePath: "7.mp3", coverPath: "7.jpg" },
+    { songName: "Aaj Ki Raat  Stree 2  Tamannaah Bhatia ", filePath: "8.mp3", coverPath: "8.jpg" },
+    { songName: "Habibi Drip (Music) - Nivin Pauly ", filePath: "9.mp3", coverPath: "9.jpg" },
+    { songName: "Illuminati (Music)  Sushin Shyam  Dabzee ", filePath: "10.mp3", coverPath: "10.jpg" }
 ];
 
 // === Populate Song List ===
