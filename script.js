@@ -109,6 +109,45 @@ document.getElementById("next").addEventListener("click", () => {
     playSong(songIndex);
     updateSelected(songIndex);
 });
+let sleepTimerId = null;
+let countdownInterval = null;
+
+function handleSleepSelection() {
+    const selected = document.getElementById("timerSelect").value;
+    const countdownEl = document.getElementById("countdownDisplay");
+
+    // Clear previous timers
+    if (sleepTimerId) clearTimeout(sleepTimerId);
+    if (countdownInterval) clearInterval(countdownInterval);
+    countdownEl.textContent = "";
+
+    if (!selected) return;
+
+    const seconds = parseInt(selected.replace('s', ''));
+    if (isNaN(seconds)) return;
+
+    let remaining = seconds;
+
+    // Start countdown display
+    countdownInterval = setInterval(() => {
+        remaining--;
+        const m = Math.floor(remaining / 60);
+        const s = remaining % 60;
+        countdownEl.textContent = ` | Stops in ${m}m ${s < 10 ? '0' : ''}${s}s`;
+        if (remaining <= 0) clearInterval(countdownInterval);
+    }, 1000);
+
+    // Set sleep timer
+    sleepTimerId = setTimeout(() => {
+        audioElement.pause();
+        audioElement.currentTime = 0;
+        masterPlay.classList.remove("fa-pause-circle");
+        masterPlay.classList.add("fa-play-circle");
+        gif.style.opacity = 0;
+        countdownEl.textContent = " | Music stopped";
+    }, seconds * 1000);
+}
+
 
 document.getElementById("previous").addEventListener("click", () => {
     songIndex = songIndex > 0 ? songIndex - 1 : 0;
@@ -141,6 +180,55 @@ function updateMediaSession(song) {
         navigator.mediaSession.setActionHandler('nexttrack', () => document.getElementById('next').click());
     }
 }
+
+// === Initial Load ===
+audioElement.src = songs[songIndex].filePath;
+masterSongName.innerText = songs[songIndex].songName;
+audioElement.currentTime = 0;
+updateMediaSession(songs[songIndex]);
+// === Initial Load ===
+audioElement.addEventListener("play", () => {
+  if ("mediaSession" in navigator) {
+    navigator.mediaSession.metadata = new MediaMetadata({
+      title: document.getElementById("masterSongName").innerText,
+      artist: "AJ Songs",
+      album: "NCS Playlist",
+      artwork: [
+        { src: "logo.png", sizes: "96x96", type: "image/png" },
+        { src: "logo.png", sizes: "128x128", type: "image/png" },
+        { src: "logo.png", sizes: "192x192", type: "image/png" },
+        { src: "logo.png", sizes: "256x256", type: "image/png" },
+        { src: "logo.png", sizes: "384x384", type: "image/png" },
+        { src: "logo.png", sizes: "512x512", type: "image/png" }
+      ]
+    });
+
+    navigator.mediaSession.setActionHandler("play", () => {
+      audioElement.play();
+      masterPlay.classList.remove("fa-play-circle");
+      masterPlay.classList.add("fa-pause-circle");
+    });
+
+    navigator.mediaSession.setActionHandler("pause", () => {
+      audioElement.pause();
+      masterPlay.classList.remove("fa-pause-circle");
+      masterPlay.classList.add("fa-play-circle");
+    });
+
+    navigator.mediaSession.setActionHandler("nexttrack", () => {
+      document.getElementById("next").click(); // simulate next button click
+    });
+
+    navigator.mediaSession.setActionHandler("previoustrack", () => {
+      document.getElementById("previous").click(); // simulate previous button click
+    });
+  }
+});
+
+audioElement.src = songs[songIndex].filePath;
+masterSongName.innerText = songs[songIndex].songName;
+audioElement.currentTime = 0;
+updateMediaSession(songs[songIndex]);
 
 // === Initial Load ===
 audioElement.src = songs[songIndex].filePath;
