@@ -120,6 +120,40 @@ nav ul li {
     gap: 10px;
     box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
 }
+.sleepTimer {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+    font-size: 14px;
+    color: #fff;
+    font-family: 'Varela Round', sans-serif;
+}
+
+.sleepTimer label {
+    font-weight: bold;
+}
+
+.sleepTimer select {
+    padding: 6px 10px;
+    border-radius: 20px;
+    border: none;
+    background-color: #1db954;
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+    outline: none;
+    transition: background-color 0.2s ease;
+}
+
+.sleepTimer select:hover {
+    background-color: #1ed760;
+}
+
+#countdownDisplay {
+    font-size: 12px;
+    color: #ccc;
+}
 
 #myProgressBar {
     width: 80%;
